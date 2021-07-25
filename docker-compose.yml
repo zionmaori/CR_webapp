@@ -7,10 +7,17 @@ services:
             - PUID=1000
             - PGID=1000
         volumes:
-            - mongodata:/data/db
+            - /mongodata:/data/db
         ports:
             - 27017:27017
         restart: unless-stopped
+    
+    mongo-seed:
+        container_name: mongo_seed
+        build: ./mongo_seed/
+        depends_on: 
+            - mongodb
+
 
     nginx:
         image: nginx

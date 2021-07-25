@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "starting deploy"
 
-docker-compose up -d mongodb &
+docker-compose up -d mongodb mongo-seed &
 sleep 5 &
 sleep 20 &
 
